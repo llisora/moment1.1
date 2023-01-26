@@ -1,0 +1,32 @@
+﻿@page
+@model MyApp.Namespace.RazorModel
+@{
+    ViewData["Title"] = "Razor";
+
+    string[] courses = { "DT057, Webbutveckling I", "DT093G, Webbutveckling II", "DT173G, Webbutveckling III" };
+
+    var date = DateTime.Now;
+    var day = DateTime.Now.DayOfWeek;
+}
+<p><b>Information</b></p>
+
+<p><b>Datum/Klockslag: </b> @date </p>
+
+<h2>Är det måndag idag?</h2>
+
+@if (day == DayOfWeek.Monday)
+{
+    <p>Idag är det Måndag!</p>
+}
+else
+{
+    <p>Idag är det inte Måndag.</p>
+}
+
+<h2>Foreach-loop</h2>
+<ol>
+    @foreach (var course in courses) {
+        <li>@course</li>
+    }
+
+</ol>
